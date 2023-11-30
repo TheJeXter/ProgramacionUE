@@ -20,7 +20,7 @@ public class Bingo {
 
     //Metodos
 
-    //Genera un array de 10 numeros aleatorios que no se repiten del 1-99
+    //Genero un array de 10 numeros aleatorios que no se repiten del 1-99
     public int[] pedirCarton() {
         int[] carton = new int[10];
         int lleno = 0;
@@ -79,6 +79,8 @@ public class Bingo {
         return numeroAleatorio;
     }
 
+    /*Comprueba si la apuesta ha sido ganada o no al comparar el número que introdujo
+     el usuario con el tiempo que ha tardado el bingo en ganarse*/
     public boolean comprobarApuesta(double apuesta){
         if(apuesta == this.bolasSacadas) {
             return true;
@@ -86,7 +88,7 @@ public class Bingo {
             return false;
         }
     }
-
+    /*Comprueba si ha habido 5 aciertos para cantar la linea*/
     public boolean comprobarLinea (boolean[] aciertos, int[] carton) {
 
         boolean ganaLinea = false;
@@ -105,7 +107,7 @@ public class Bingo {
         return ganaLinea;
     }
 
-
+    //Comprueba si se ha llegado a los 10 aciertos y por tanto si se canta bingo
     public boolean comprobarBingo (boolean[] aciertos) {
 
         boolean ganaBingo = true;
@@ -120,7 +122,7 @@ public class Bingo {
         return ganaBingo;
 
     }
-
+    //Comprueba si la bola sacada coincide con algun numero del carton
     public boolean[] comprobarCarton (int[] carton,boolean[] aciertos, int bolaActual) {
 
         for(int i = 0; i < carton.length; i++){
@@ -150,6 +152,8 @@ public class Bingo {
         boolean[] aciertos = new boolean[10];
         int bolaActual;
 
+    /*Sleep sirve para poner el programa "a dormir" y así espaciar lo que tardan en
+    salir las bolas*/
         while(!finBingo) {
             bolaActual = bingo.nuevaBola();
             try {
